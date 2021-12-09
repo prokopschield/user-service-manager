@@ -1,0 +1,24 @@
+{
+	"name": "user-service-manager",
+	"description": "Manager services for users",
+	"version": "0.0.0",
+	"main": "lib/index.js",
+	"bin": {
+		"user-service-manager-server": "lib/server/cli.js",
+		"user-service-manager-client": "lib/client/cli.js"
+	},
+	"author": "Prokop Schield",
+	"devDependencies": {
+		"@types/node": ">=16",
+		"@types/prompts": "^2.0.14"
+	},
+	"keywords": [],
+	"license": "GPL-3.0-or-later",
+	"dependencies": {
+		"doge-config": "^0.3.13",
+		"doge-passwd": "^0.1.2",
+		"prompts": "^2.4.2",
+		"socket.io": "^4.4.0",
+		"socket.io-client": "^4.4.0"
+	}
+}
