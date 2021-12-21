@@ -7,6 +7,11 @@
 		"user-service-manager-server": "lib/server/cli.js",
 		"user-service-manager-client": "lib/client/cli.js"
 	},
+	"scripts": {
+		"client": "node lib/client/cli",
+		"server": "node lib/server/cli",
+		"update": "sh ./src/scripts/update.sh"
+	},
 	"author": "Prokop Schield",
 	"devDependencies": {
 		"@types/node": ">=16",
