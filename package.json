@@ -23,6 +23,7 @@
 		"doge-config": "^0.3.13",
 		"doge-passwd": "^0.1.2",
 		"prompts": "^2.4.2",
+		"require-gpl": "^0.1.0-2",
 		"socket.io": "^4.4.0",
 		"socket.io-client": "^4.4.0"
 	}

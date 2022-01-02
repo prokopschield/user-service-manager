@@ -96,10 +96,10 @@ doge-config@^0.3.13:
   dependencies:
     doge-json "^1.2.1"
 
-doge-json@^1.2.1, doge-json@^1.2.3:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/doge-json/-/doge-json-1.2.3.tgz#193c5052261bfd9de0492c839e36cc89e514733f"
-  integrity sha512-cHcfx5d8Nx/7X6KCSCCrNruxIxARrws05wGbdSSe5g0df3Bwycia/fDHx3pS/17xTpo5ztGQqkq0AFwCv/VmAg==
+doge-json@^1, doge-json@^1.2.1, doge-json@^1.2.3:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/doge-json/-/doge-json-1.2.7.tgz#5c4a01b714ad75fdcf89b861a51dc8a99c6ce872"
+  integrity sha512-B/JUEFJhx0vPM86ukrws1W+UMzmwwVJ92EecnK1SsTTr5eD4IBuZkhOdGbVt45IndmcQ8/O2PZmUROQdul9aUg==
 
 doge-passwd@^0.1.2:
   version "0.1.2"
@@ -200,6 +200,13 @@ prompts@^2.4.2:
   dependencies:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
+
+require-gpl@^0.1.0-2:
+  version "0.1.0-2"
+  resolved "https://registry.yarnpkg.com/require-gpl/-/require-gpl-0.1.0-2.tgz#c9414598d8a7ce6f784668fcef6466bcbb1c4b65"
+  integrity sha512-mLkue+avFO1XAV2xJn9JEYD9iOJguYCyG4rzHEaU9M93fQkRn3SNQehlK0O9TRM2tAlh3/M4ANl+POpeETBf2w==
+  dependencies:
+    doge-json "^1"
 
 sisteransi@^1.0.5:
   version "1.0.5"
