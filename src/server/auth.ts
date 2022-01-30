@@ -23,12 +23,16 @@ export function change_password(socket: Socket, password: string): boolean {
 	}
 }
 
-export function login(socket: Socket, password: string): boolean {
+export function login(
+	socket: Socket,
+	password: string,
+	rehash = false
+): boolean {
 	const hashed = (config.obj.auth.str.password ||=
 		'change this #' + hash(hash('')));
 	if (verify(password, hashed) || verify(hashed, password)) {
 		logged_in.set(socket, true);
-		return change_password(socket, password);
+		return !rehash || change_password(socket, password);
 	} else {
 		return false;
 	}

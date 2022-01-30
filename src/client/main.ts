@@ -15,6 +15,25 @@ async function main() {
 	let terminate = false;
 	io.on('terminate', () => (terminate = true));
 	io.emit('get_salt', async (salt: string) => {
+		// password taken from config file
+		const hashed = config.obj.auth.str.password;
+
+		if (hashed) {
+			await new Promise((resolve) => {
+				io.emit(
+					'login',
+					hash(hashed, 64, salt ? decode(salt) : undefined),
+					hashed.length === 64,
+					(success: boolean) => {
+						if (success) {
+							logged_in = true;
+						}
+						resolve(logged_in);
+					}
+				);
+			});
+		}
+
 		while (!logged_in) {
 			const { password } = await prompts({
 				type: 'password',
@@ -22,10 +41,9 @@ async function main() {
 				message: 'Enter the password: ',
 			});
 			const t = hash(password, 64, salt ? decode(salt) : undefined);
-			const hashed = config.obj.auth.str.password;
 			if (!hashed || hashed == password || verify(t, hashed)) {
 				logged_in = await new Promise((resolve) =>
-					io.emit('login', t, resolve)
+					io.emit('login', t, true, resolve)
 				);
 			}
 			if (!logged_in) {

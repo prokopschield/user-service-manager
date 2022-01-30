@@ -22,19 +22,20 @@ async function main() {
 			})
 			.on(
 				'login',
-				(password: unknown, callback: (success: boolean) => void) => {
+				(
+					password: unknown,
+					rehash: boolean,
+					callback: (success: boolean) => void
+				) => {
 					if (
-						typeof password != 'string' ||
+						typeof password !== 'string' ||
+						typeof rehash !== 'boolean' ||
 						!(callback instanceof Function)
 					) {
-						return (
-							socket.emit('pong'),
-							socket.emit('terminate'),
-							socket.disconnect()
-						);
+						return socket.disconnect();
 					}
 					callback(
-						login(socket, password) &&
+						login(socket, password, rehash) &&
 							(context.mode = context_t.cmd) &&
 							true
 					);
